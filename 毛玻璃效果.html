@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .cover {
+                color: #fff;
+        }
+        .cover::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: transparent url(b1_1.jpg) center center no-repeat;
+            filter: blur(8px);
+            z-index: -1;
+            background-size: cover;
+        }
+        img{
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            box-shadow: 0 0 1rem #fff
+        }
+        h2{
+            position: absolute;
+            top: 11rem;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        /* 谷歌 */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            appearance: none; 
+            margin: 0; 
+        }
+        /* 火狐 */
+        input{
+            -moz-appearance:textfield;
+        }
+    </style>
+</head>
+<body>
+    <div class="cover">     
+        <img src="b1_1.jpg" alt="">
+        <h2>麦迪</h2>
+    </div>
+    <input type="number">
+</body>
+</html>
+<script>
+    function Cat (name,age) {
+        this.name=name;
+        this.age=age
+    
+    }
+    Cat.prototype={
+        walking : function () {
+            console.log("走了20步")
+        }
+    }
+    var cat1 = new Cat()
+    // console.log(aaa.run)
+    cat1("张三","18")   
+    cat1.walking()
+    
+    
+
+
+                                                      
+</script>

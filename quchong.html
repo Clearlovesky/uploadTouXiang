@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>1,1,2,2,8,9,2,"我","我","我啥啥啥"</h1>
+    <h2></h2>
+    <button style="line-height:40px;border:1px solid #ccc">点我</button>
+</body>
+</html>
+<script>
+    var arr = [1,1,2,2,8,9,2,"我","我","我啥啥啥"]
+    var newarr=[...new Set(arr)]  //去重 一步到位
+    console.log(newarr)
+    
+    // 页面展示
+    window.onload=function(){
+        document.getElementsByTagName("button")[0].onclick = function(){
+            document.getElementsByTagName("h2")[0].innerHTML = newarr.join(",")
+        }
+        
+        
+    }
+</script>

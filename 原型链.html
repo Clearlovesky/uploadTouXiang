@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Test () {
+            this.name="Mike"
+            this.run=function(){
+                console.log("跑了五公里")
+            }
+        }  
+        Test.prototype={
+            say () {
+                console.log("讲了几句话")
+            }
+        }
+        var O_test = new Test()
+        O_test.say()
+        // 每个实例对象都有一个hasOwnProperty()方法，用来判断某一个属性到底是本地属性，还是继承自prototype对象的属性。
+        console.log(O_test.hasOwnProperty("say")) //false
+        console.log(O_test.hasOwnProperty("name")) //true
+
+
+
+    //     function Animal(){
+    // 　　　　this.species = "动物";
+    // 　　}
+    //     function Cat(name,color){
+    // 　　　　this.name = name;
+    // 　　　　this.color = color;
+    // 　　}
+    //     function extend(Child, Parent) {
+    // 　　　　var F = function(){};
+    // 　　　　F.prototype = Parent.prototype;
+    // 　　　　Child.prototype = new F();
+    // 　　　　Child.prototype.constructor = Child;
+    // 　　　　Child.uber = Parent.prototype;
+    // 　　}
+    //     extend(Cat,Animal);
+    // 　　var cat1 = new Cat("大毛","黄色");
+    // 　　console.log(cat1.species); 
+    </script>
+</body>
+</html>

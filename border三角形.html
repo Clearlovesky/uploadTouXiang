@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .two-border b {
+            display:inline-block;
+        }
+        .two-border .b-1 {
+            border-width:20px;
+            border-color:orange orange transparent transparent;
+            border-style:solid solid dashed dashed;
+        }
+        .two-border .b-2 {
+            border-width:20px;
+            border-color:transparent orange orange transparent;
+            border-style:dashed solid solid dashed;
+        }
+        .two-border .b-3 {
+            border-width:20px;
+            border-color:transparent transparent orange orange;
+            border-style:dashed dashed solid solid;
+        }
+        .two-border .b-4 {
+            border-width:20px;
+            border-color:orange transparent transparent orange;
+            border-style:solid dashed dashed solid;
+        }
+        .two-border .b-5 {
+            border-width:20px;
+            border-color:orange transparent orange transparent;
+            border-style:solid dashed solid dashed;
+        }
+        .two-border .b-6 {
+            border-width:20px;
+            border-color:transparent orange transparent orange;
+            border-style:dashed solid dashed solid;
+        }
+        .two-border .b-7 {
+            border-width:38px 45px 7px 21px;
+            border-color:orange orange transparent transparent;
+            border-style:dashed solid dashed solid;
+        }
+        .two-border .b-8 {
+            border-width:38px 45px 7px 21px;
+            border-color:orange transparent transparent orange;
+            border-style:dashed solid dashed solid;
+        }
+        .two-border .b-9 {
+            border-width:20px;
+            border-color:orange;
+            border-style:double outset;
+        }
+        .two-border .b-10 {
+            border-width:20px;
+            border-color:orange orange transparent transparent;
+            border-style:groove ridge inset dashed;
+        }
+        .two-border .b-11 {
+            border-width:20px;
+            border-color:orange;
+            border-style:double;
+        }
+        .two-border .b-12 {
+            border-width:30px 30px 30px 30px;
+            border-color:#efefef #ccc #ddd orange;
+            border-style:solid;
+        }
+        .two-border .b-13 {
+            height:45px;
+            border-width:5px 3px;
+            border-color:transparent transparent transparent orange;
+            border-style:solid;
+        }
+        </style>
+</head>
+<body>        
+    <div class="two-border">
+        <b class="b-1"></b>
+        <b class="b-2"></b>
+        <b class="b-3"></b>
+        <b class="b-4"></b>
+        <b class="b-5"></b>
+        <b class="b-6"></b>
+        <b class="b-7"></b>
+        <b class="b-8"></b>
+        <b class="b-9"></b>
+        <b class="b-10"></b>
+        <b class="b-11"></b>
+        <b class="b-12"></b>
+        <b class="b-13"></b>
+    </div>
+</body>
+</html>
+
+
+
+<template>
+    <div class="page-lazyload">
+      <mt-header fixed title="测试">
+          <router-link to="/" slot="left">
+              <mt-button icon="back">back</mt-button>
+          </router-link>
+          <mt-button icon="more" slot="right"></mt-button>
+      </mt-header>
+      <ul class="page-lazyload-list">
+        <li class="page-lazyload-listitem" v-for="item in list">
+          <img v-lazy="item" class="page-lazyload-image">
+        </li>
+      </ul>
+    </div>
+  </template>
+  
+  <script>
+  export default {
+      data() {
+        return {
+          list: [
+            'http://fuss10.elemecdn.com/b/18/0678e57cb1b226c04888e7f244c20jpeg.jpeg',
+            'http://fuss10.elemecdn.com/3/1e/42634e29812e6594c98a89e922c60jpeg.jpeg',
+            'http://fuss10.elemecdn.com/1/c5/95c37272d3e554317dcec1e17a9f5jpeg.jpeg',
+            'http://fuss10.elemecdn.com/7/85/e478e4b26af74f4539c79f31fde80jpeg.jpeg',
+            'http://fuss10.elemecdn.com/b/df/b630636b444346e38cef6c59f6457jpeg.jpeg',
+            'http://fuss10.elemecdn.com/7/a5/596ab03934612236f807b92906fd8jpeg.jpeg'
+          ]
+        };
+      }
+    };
+  </script>
+  
+  <style scoped>
+  image[lazy=loading] {
+    width: 40px;
+    height: 300px;
+    margin: auto;
+  }
+  .page-lazyload-image{
+      width: 100%
+  }
+  .page-lazyload-list{
+      margin-top: 2rem
+  }
+  .mint-header{
+      height: 2rem;
+  }
+  </style>

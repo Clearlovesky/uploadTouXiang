@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .fade-enter,
+        .fade-leave-to{
+            opacity: 0;
+        }
+        .fade-enter-active,
+        .fade-leave-active{
+            transition: opacity 2s
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <input type="text" v-model="msg" placeholder="请输入...">
+        <button @click="handleSubmit">确定</button>
+        <ul>
+            <child-list v-for="(item,index) in list" :content="item" :index_aa="index" @delete="handleDelete"></child-list>
+        </ul>
+    </div>  
+    <script>
+        Vue.component('child-list',{
+            props:['content','index_aa'],
+            template:'<transition name="fade"><li @click="handleClick">{{index_aa}}-{{content}}</li></transition>',
+            methods:{
+                handleClick () {
+                    this.$emit('delete',this.index_aa)
+                }
+            }
+        })
+        var vm = new Vue({
+            el:"#root",
+            data:{
+                msg:"",
+                list:[]
+            },
+            methods:{
+                handleSubmit () {
+                    let inputValue = this.msg
+                    if(inputValue!=""){
+                        this.list.push(this.msg)
+                        this.msg=''
+                    }  
+                },
+                handleDelete (index_aa) {
+                    this.list.splice(index_aa,1)
+                }
+            }
+        })
+    </script>
+    <script>
+        function timestampToTime(timestamp) {
+        　　// var date = new Date(timestamp*1000);
+        　　var date = new Date(timestamp);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+        　　Y = date.getFullYear() + '.';
+        　　M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '.';
+        　　D = date.getDate() + ' ';
+        　　// h = date.getHours() + ':';
+        　　h = (date.getHours() < 10 ? '0'+date.getHours() : date.getHours()) + ':';
+        　　// m = date.getMinutes() + ':';
+        　　m = (date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes()) + ':';
+        　　// s = date.getSeconds();
+        　　s = (date.getSeconds() < 10 ? '0'+date.getSeconds() : date.getSeconds());
+        　　return Y+M+D+h+m+s;
+        }
+        // timestampToTime(timestamp);
+        console.log(timestampToTime(1111111111111))
+    </script>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        <div>{{firstName}}</div>
+        <div>{{lastName}}</div>
+        <div>{{fullName}}</div>
+        <div v-if="Math.random() > 0.5">
+        Now you see me
+        </div>
+        <div v-else>
+        Now you don't
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#root',
+            data:{
+                firstName:"德玛西亚",
+                lastName:"诺克萨斯"
+            },
+            // computed:{
+            //     fullName () {
+            //         return this.firstName +"---"+ this.lastName
+            //     }
+            // }
+            computed:{
+                fullName : {
+                    get () {
+                        return this.firstName +"---"+ this.lastName
+                    },
+                    set (newValue) {
+                    var names = newValue.split('-')
+                    this.firstName = names[0]
+                    this.lastName = names[names.length - 1]
+                    }
+                }
+            }
+        })
+        // vm.fullName = 'John-Doe'
+    </script>
+</body>
+</html>

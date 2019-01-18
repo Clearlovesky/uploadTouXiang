@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="wangEditor/wangEditor.min.css">
+  <title>Document</title>
+</head>
+<body>
+
+  <textarea name="" id="content" cols="30" rows="10" ></textarea>
+
+  <div id="box"></div>
+
+
+  <script src="wangEditor/wangEditor.min.js"></script>
+
+  <script>
+    var content = document.getElementById('content');
+    var E = window.wangEditor;
+    var editor = new E('#box');
+    editor.customConfig.onchange = function(html){
+      // console.log(html);
+
+      // html是富文本编辑中的内容
+      // 我们要写入都文本域中
+      content.innerText = html;
+
+    }
+    editor.create();
+
+    // editor.txt.html('<h1>js写入的文字</h1>');
+    // editor.txt.html('<h6>又js写入的文字</h6>');
+    // editor.txt.append('<h3>又又js写入的文字</h3>');
+    // editor.txt.clear();
+
+    // console.log(editor.txt.html());
+    // console.log(editor.txt.text());
+
+    // editor.txt.text('<h1>你好啊</h1>');
+  
+  </script>
+  
+</body>
+</html>
